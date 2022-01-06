@@ -1,0 +1,30 @@
+Requirements :
+- Create Facebbok Developers Account with these steps:
+    https://developers.facebook.com/docs/instagram-basic-display-api/getting-started
+- Create personal Instagram Account
+
+- Create app using Shopify CLI command
+- Redirect shopify app platform as per redirect uri set in Facebook Developers account
+    Here : https://classicdesigns.studio/connect.php
+    =>It will return access token(short term - valid for 2 hrs) and redirect user to his shopify store
+    => Save these access token and userid in localStorage
+- Add a script on frontend using shopify script tag api
+    (/instafeed?shop=classicapp.myshopify.com)
+- Use custom api endpoints to get and set instafeed of connected user 
+    - Send post request from backend(InstagramFeed.js)
+    - It will save posts in array
+- Call get api from frontend js and append results in #classic_instafeed (instafeed.js)
+
+==> Remaining Points : 
+- Long term instagram access token =>done
+- find alternative of localstorage and save details for long time
+- refresh instafeed array every display
+- show shop owner a message when user remove access of that store from instagram account =>done
+ 
+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
+
+Not getting : 
+==>react in shopify frontend
+
+Remaining : 
+==> Slider plugin in core JS

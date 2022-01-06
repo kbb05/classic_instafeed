@@ -1,0 +1,29 @@
+axios(themeConfig).then(function (response) {
+    console.log(accessToken);
+    themes = response.data.themes;
+    for (var i = 0; i < themes.length; i++) {
+        var data = JSON.stringify({
+            "asset": {
+                "key": "sections/test1.liquid",
+                "src": "https://classicdesigns.studio/classic-instafeed/test.liquid"
+            }
+        });
+        var assetConfig = {
+            method: 'put',
+            url: `https://${shop}/admin/api/2021-10/themes/${themes[i].id}/assets.json`,
+            headers: {
+                'X-Shopify-Access-Token': accessToken,
+            },
+            data: data
+        };
+        promises.push(
+            axios(assetConfig).then(response => {
+                console.log(response.data);
+                // do something with response
+                // assets.push(response.data);
+            }).catch(error => { console.log(error) })
+        )
+    }
+}).catch(function (error) {
+    console.log(error);
+});

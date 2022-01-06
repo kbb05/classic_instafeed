@@ -1,0 +1,154 @@
+<div id="{{section.id}}" class="classic-instafeed instagram-feed  {{section.settings.extra_class}}">
+  <div class="classic-instafeed-container">
+    <div id="classic_instafeed" class="classic-instafeed_{{section.settings.layout}}"></div>
+  </div>
+</div>
+<script id="classic-instafeed_{{section.id}}" type="text/javascript">
+  window.classicInstaFeedOptions = {
+    layout : {{section.settings.layout | json}},
+    
+    slide_to_show_desktop : {{section.settings.slide_to_show_desktop}},
+    slide_to_show_tablet : {{section.settings.slide_to_show_tablet}},
+    slide_to_show_mobile : {{section.settings.slide_to_show_mobile}},
+    
+    posts_to_show_desktop : {{section.settings.posts_to_show_desktop}},
+    posts_to_show_tablet : {{section.settings.posts_to_show_tablet}},
+	posts_to_show_mobile : {{section.settings.posts_to_show_mobile}},
+
+    posts_cols : {{section.settings.posts_cols}},
+    
+    posts_per_page : {{section.settings.posts_per_page}},
+    
+    add_load_more : {{section.settings.add_load_more}},
+  }
+</script>
+{% schema %}
+	{  
+		"name": "Instagram Feed",
+		"class": "slideshow",
+		"tag": "section",
+		"settings": [
+			{
+              "type": "header",
+              "content": "Layout"
+      		},
+			{
+				"type": "select",      
+				"id": "layout",      
+				"label": "Layout",   
+				"options": [ 
+					{ 
+						"value": "grid",
+ 						"label": "Grid"
+					},
+					{          
+						"value": "slider",
+						"label": "Slider"        
+					}
+			  	],
+				"default": "slider" 
+			},
+			{
+              "type": "range",
+              "id": "posts_per_page",
+              "min": 1,
+              "max": 20,
+              "step": 1,
+              "label": "Posts per page",
+              "default": 10
+            },
+			{
+              "type": "header",
+              "content": "Post Slider settings"
+      		},
+            {
+              "type": "range",
+              "id": "slide_to_show_desktop",
+              "min": 2,
+              "max": 20,
+              "step": 1,
+              "label": "Posts to show - Slider (Desktop)",
+              "default": 4
+            },
+			{
+              "type": "range",
+              "id": "slide_to_show_tablet",
+              "min": 2,
+              "max": 20,
+              "step": 1,
+              "label": "Posts to show - Slider (Tablet)",
+              "default": 3
+            },
+			{
+              "type": "range",
+              "id": "slide_to_show_mobile",
+              "min": 1,
+              "max": 20,
+              "step": 1,
+              "label": "Posts to show - Slider (Mobile)",
+              "default": 2
+            }, 
+			{
+              "type": "header",
+              "content": "Post Grid settings"
+      		},
+			{
+              "type": "range",
+              "id": "posts_cols",
+              "min": 1,
+              "max": 5,
+              "step": 1,
+              "label": "Columns",
+              "default": 3
+            },
+			{
+              "type": "range",
+              "id": "posts_to_show_desktop",
+              "min": 2,
+              "max": 5,
+              "step": 1,
+              "label": "Posts to show - Grid (Desktop)",
+              "default": 4
+            },
+			{
+              "type": "range",
+              "id": "posts_to_show_tablet",
+              "min": 2,
+              "max": 5,
+              "step": 1,
+              "label": "Posts to show - Grid (Tablet)",
+              "default": 3
+            },
+			{
+              "type": "range",
+              "id": "posts_to_show_mobile",
+              "min": 1,
+              "max": 5,
+              "step": 1,
+              "label": "Posts to show - Grid (Mobile)",
+              "default": 2
+            },
+            {
+              "type": "checkbox",
+              "id": "add_load_more",
+              "label": "Show View More Button",
+              "default": false
+            },
+			{
+              "type": "header",
+              "content": "Other"
+      		},
+			{	 
+				"type" : "text",
+				"id"   : "extra_class",
+				"label": "Extra Class"
+			} 
+		],
+		"presets": [
+			{
+				"name": "Instagram Feed",
+				"category": "Text" 
+			}
+		]
+	}
+{% endschema %}
